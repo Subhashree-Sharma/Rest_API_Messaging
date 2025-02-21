@@ -20,15 +20,21 @@ public class HelloController {
         return "Hello " + name + " from BridgeLabz";
     }
 
-    // UC_03 - Using Path Variable
+    //UC_03 - Using Path Variable
     @GetMapping("/param/{name}")
     public String sayHelloWithPath(@PathVariable String name) {
         return "Hello " + name + " from BridgeLabz";
     }
 
-    // UC_04- POST Request - Accepts firstName and lastName in the body
+    //UC_04- POST Request - Accepts firstName and lastName in the body
     @PostMapping("/post")
     public String sayHelloWithPost(@RequestBody UserDTO user) {
         return "Hello " + user.getFirstName() + " " + user.getLastName() + " from BridgeLabz";
+    }
+
+    //UC_05- PUT Request - pass first name as Path Variable & last name as Query Parameter
+    @PutMapping("/put/{firstName}")
+    public String sayHelloWithPut(@PathVariable String firstName, @RequestParam String lastName) {
+        return "Hello " + firstName + " " + lastName + " from BridgeLabz";
     }
 }
